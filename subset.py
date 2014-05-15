@@ -16,5 +16,6 @@ def get_set_of_subsets (lst, current_set):
         #print(new_set)
         return new_set
 
+#size returns the accumulative size of all subsets of {1...n}
 def size(n):
     print(len(sum(get_set_of_subsets (list(range(1,n+1)), []),[]))-1)

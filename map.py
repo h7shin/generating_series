@@ -1,23 +1,23 @@
 from client import weight
 
-""" map function takes (slice_number, sublist_of_subset)
-as inputs and emits (weight(subset),min, max)
-where min, max are the lowest and highest weight so far in 
-previous emisions
+""" map function takes (slice_number, sublist_of_element, emissions)
+as inputs and appends (weight(element), min, max) (weight(element) is the key)
+to emissions, where min, max are the lowest and highest weight(element) keys
+in emissions
 """
 
-def map_ (slice_number, sublist_of_subset, emissions):
+def map (slice_number, sublist_of_element, emissions):
     print("map:",slice_number)
     
-    for subset in sublist_of_subset:
-        w = weight(subset)
+    for element in sublist_of_element:
+        w = weight(element)
 
-        # mutate emissions dictionary (made slight changes
-        # to the original MapReduce Pattern to avoid 
+        # mutate emissions (made slight changes
+        # to the original Map Reduce Pattern to avoid 
         # going over the entire list again to find max and min
         
         # emit key value
-        w = weight(subset)
+        w = weight(element)
         if len(emissions) == 0:
             emit = [w, w, w]
         else:

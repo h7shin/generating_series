@@ -1,16 +1,14 @@
 from multiprocessing import Process, Manager
-from subset import get_set_of_subsets
 import time
-from map import map_
+from map import map
 from reduce import reduce
-from client import get_num_map_nodes
+from client import get_num_map_nodes, create_list
 
 """ Compute(lst) computes the sum of the generating series
 for set, lst = [1,...,n] (n >= 1), with respect
 to weight function w (in client.py)"""
 
 def compute(lst):
-    
     
     # number of map nodes num_map_nodes
     num_map_nodes = get_num_map_nodes()
@@ -32,26 +30,26 @@ def compute(lst):
     
     start_time = time.time()    
     
-    set_of_subsets = get_set_of_subsets (lst, [])
+    list_of_list = lst
        
     print ("Up to Permutation:", str(time.time() - start_time ) + " seconds"  )
     
-    len_set_of_subsets = len(set_of_subsets)
+    len_list_of_list = len(list_of_list)
     
-    print ("Size of S: ", len_set_of_subsets)
-    len_sublist = max(1,int(len_set_of_subsets/float(num_map_nodes)))
+    print ("Size of S: ", len_list_of_list)
+    len_sublist = max(1,int(len_list_of_list/float(num_map_nodes)))
     
     i=0
     
-    while i < len_set_of_subsets:
+    while i < len_list_of_list:
         
-        if (len_set_of_subsets - i <= len_sublist):
+        if (len_list_of_list - i <= len_sublist):
             # last step
-            sliced_list = set_of_subsets[i:]
+            sliced_list = list_of_list[i:]
         else:
-            sliced_list = set_of_subsets[i:i + len_sublist]
+            sliced_list = list_of_list[i:i + len_sublist]
         print(len(sliced_list))
-        p = Process(target=map_, args=(num_p, sliced_list, emissions))
+        p = Process(target=map, args=(num_p, sliced_list, emissions))
         i += len_sublist
         jobs.append(p)
         p.start()
@@ -84,7 +82,7 @@ def compute(lst):
         q.join()     
         
     print ("Up to Reducing Stage:", str(time.time() - start_time ) + " seconds"  )
-    print("Input Size: ", len_set_of_subsets )
+    print("Input Size: ", len_list_of_list )
     return sum(result_lst)
 
 # list_generator returns a list [1...n]
@@ -93,4 +91,4 @@ def list_generator (n):
     return list(range(1,n+1))
 
 if __name__ == "__main__":
-    print(compute(list_generator(14)))
+    print(compute(create_list()))
