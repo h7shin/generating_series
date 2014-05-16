@@ -40,15 +40,15 @@ How to run
    Split Input: Split list into sublists by the number of map nodes. The last list may be shorter
                 than all others.
                 
-   Map:           Input:   index of the sublist and its corresponding sublist contents
+   Map:           Input:   index of the sublist and its corresponding sublist contents <br>
                   Returns: key = weight(element of the sublist), value = "max and min"**
                 
                   ** "max and min" means the largest and smallest key values emitted by
-                  other map nodes. This is to keep track of upper and lower bound of key range
+                  other map nodes. This is to keep track of upper and lower bound of the key range
                   
   Local Combine:  Aggregates all key value pairs from a single map node
   
-  Reduce:         Input:  Counts number of key value pairs (one particular key for reduce)
+  Reduce:         Input:  Counts number of key value pairs (one particular key for reduce) <br>
                   Returns:Value of ax^k where a is the coefficient (= count), x is obtained
                   from x() from client.py, and k is optained from weight function w() from client.py)
                   
