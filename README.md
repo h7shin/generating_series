@@ -10,7 +10,7 @@ Support
 How to run
 
 1. Customize client.py
-  * implement your own weight function w() -> (returns the power of x) that will operate on each element of the set
+  * implement your own weight function w() that returns a power in the series that will operate on each element of the set
   * optional: implement get_num_map_nodes(size_param) -> (returns number of map nodes) 
     where size_param is a variable you can use to categorize input by size
     the number of map nodes should be higher with the larger input size
