@@ -3,6 +3,12 @@ generating_series
 
 Evaluating generating series with large input data using Map-Reduce pattern
 
+Generating Series
+
+Generating Series is defined by the generating function P (set,x)
+
+P(set, x) = Sum(for all e in set) x^w(e)
+
 Support
 
   Python 3
