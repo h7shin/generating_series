@@ -7,7 +7,7 @@ Generating Series
 
 Generating Series is defined by the generating function P (S,x)
 
-P(S, x) = Sum(for all element e in set S) x^w(e)
+P(S, x) = Sum(for all elements e in set S) x^w(e)
 
 Support
 
@@ -43,8 +43,8 @@ How to run
 
 5. General Implementation
 
-   Map function generates the powers of x in the series, reduce collects the like terms,
-   and combiner sums the terms by susbstituting for x.
+   Map function generates the powers of x in the series, reduce function collects the like terms,
+   and combiner returns the sum of the terms by susbstituting for x.
 
    Split Input:   Split list into sublists by the number of map nodes. The last list may be shorter
                   than all others.
