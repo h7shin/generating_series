@@ -5,9 +5,9 @@ Evaluating generating series with large input data using Map-Reduce pattern
 
 Generating Series
 
-Generating Series is defined by the generating function P (set,x)
+Generating Series is defined by the generating function P (S,x)
 
-P(set, x) = Sum(for all e in set) x^w(e)
+P(S, x) = Sum(for all element e in set S) x^w(e)
 
 Support
 
@@ -43,8 +43,11 @@ How to run
 
 5. General Implementation
 
-   Split Input: Split list into sublists by the number of map nodes. The last list may be shorter
-                than all others.
+   Map function generates the powers of x in the series, reduce collects the like terms,
+   and combiner sums the terms by susbstituting for x.
+
+   Split Input:   Split list into sublists by the number of map nodes. The last list may be shorter
+                  than all others.
                 
    Map:           Input:   index of the sublist and its corresponding sublist contents <br>
                   Returns: key = weight(element of the sublist), value = "max and min"**
@@ -52,7 +55,7 @@ How to run
                   ** "max and min" means the largest and smallest key values emitted by
                   other map nodes. This is to keep track of upper and lower bound of the key range
                   
-  Local Combine:  Aggregates all key value pairs from a single map node
+  Local Combine:  Aggregates all key value pairs from a single map node into a list
   
   Reduce:         Input:  Counts number of key value pairs (one particular key for reduce) <br>
                   Returns:Value of ax^k where a is the coefficient (= count), x is obtained
