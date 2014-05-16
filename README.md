@@ -30,8 +30,9 @@ How to run
 
 4. Recommendation
 
-   If unsure, it is recommended to set size_param = len(<input list>)
-   It is recommended to set option to not_fixed to minimize running time
+   If unsure, it is recommended to set size_param = len(<input list>).
+   
+   It is also recommended to set option to not_fixed to minimize running time
    while 'fixed' option is recommended for testing purposes
 
 5. General Implementation
