@@ -18,17 +18,18 @@ How to run
   * optional: implement create_list() -> (returns a list) to be used as input
   
 2. Run command [your_path_to]/Python34/python.exe compute_local.py
-  Call function compute(lst,size_param,option)
-  where lst is a list of (list, integer, or float)
-  and size_param is a variable that indicates the size of the input (you define it in anyway you like)
-  and option is one of 'fixed' or 'not_fixed'
-  'fixed'         : set number of map nodes to 15 (you can modify this in compute_local.py)
-  'not_fixed'     : set number of map nodes to get_num_map_nodes(size_param) in client.py
+  * Call function compute(lst,size_param,option)
+    where lst is a list of (list, integer, or float)
+  * size_param is a variable that indicates the size of the input (you define it in anyway you like)
+  * option is one of 'fixed' or 'not_fixed'
+  * 'fixed'         : set number of map nodes to 15 (you can modify this in compute_local.py)
+  * 'not_fixed'     : set number of map nodes to get_num_map_nodes(size_param) in client.py
 
-3. You can also run different tests by uncommenting some of the coes in __name__ == __main__
-   in the compute_local.py source code. See compute_local.py for details
+3. You can also run different tests by uncommenting some of the codes in __name__ == __main__
+   at the bottom of compute_local.py source code. See compute_local.py for details.
 
 4. Recommendation
+
    If unsure, it is recommended to set size_param = len(<input list>)
    It is recommended to set option to not_fixed to minimize running time
    while 'fixed' option is recommended for testing purposes
