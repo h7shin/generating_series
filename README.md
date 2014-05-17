@@ -3,17 +3,36 @@ generating_series
 
 Evaluating generating series with large input data using Map-Reduce pattern
 
-Generating Series
+##### Generating Series
 
-Generating Series is defined by the generating function P (S,x)
+Generating Series is defined by the generating function P(S,x)
 
-P(S, x) = Sum(for all elements e in set S) x^w(e)
+![Equation](https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation.png)
 
-Support
+##### Support
 
   Python 3
-  
-How to run
+
+##### Two Algorithms
+
+The optimization is implemented in five steps:
+
+Optimizations
+* Step 1. Map Reduce Pattern
+* Step 2. Local Combiner as opposed to Global Combiner
+* Step 3. Adjustment in number of map nodes
+* Step 4. Quick way to determine maximum and minimum key values
+* Step 5. Multiple Reduce Nodes for Same Key
+
+
+1. Up to Step 4 (compute_local_optimized_step_4.py):  Follows Map-Reduce Pattern
+![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/optimized_step_4.png?raw=true)
+2. Up to Step 5 (compute_local.py): Splits Reduce Nodes further to increase number of parallel reduce processes
+![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/optimized_step_5.png?raw=true)
+
+Comparison of Algorithms
+![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/time.bmp?raw=true)
+#####  How to run
 
 1. Customize client.py
   * implement your own weight function w() that returns a power in the series that will operate on each element of the set
@@ -55,7 +74,7 @@ How to run
                   ** "max and min" means the largest and smallest key values emitted by
                   other map nodes. This is to keep track of upper and lower bound of the key range
                   
-  Local Combine:  Aggregates all key value pairs from a single map node into a list
+  Local Combine:  Aggregates all key value pairs with same keys into a list
   
   Reduce:         Input:  Counts number of key value pairs (one particular key for reduce) <br>
                   Returns:Value of ax^k where a is the coefficient (= count), x is obtained
