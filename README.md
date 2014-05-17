@@ -10,9 +10,9 @@ Generating Series is defined by the generating function P(S,x)
 ![Equation](https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation.png)
 
 * v stores the upper and lower bound for keys see compute_local.py for detailed documentation
-##### Support
 
-  Python 3
+##### Support
+Python 3
 
 ##### Two Algorithms
 
@@ -31,7 +31,8 @@ Optimizations
 2. Up to Step 5 (compute_local.py): Splits Reduce Nodes further to increase number of parallel reduce processes
 ![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/optimized_step_5.png?raw=true)
 
-Comparison of Algorithms
+##### Comparison of Algorithms
+
 ![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/time.bmp?raw=true)
 #####  How to run
 
