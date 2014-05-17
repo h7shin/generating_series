@@ -9,6 +9,7 @@ Generating Series is defined by the generating function P(S,x)
 
 ![Equation](https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation.png)
 
+* v stores the upper and lower bound for keys see compute_local.py for detailed documentation
 ##### Support
 
   Python 3
@@ -21,8 +22,8 @@ Optimizations
 * Step 1. Map Reduce Pattern
 * Step 2. Local Combiner as opposed to Global Combiner
 * Step 3. Adjustment in number of map nodes
-* Step 4. Quick way to determine maximum and minimum key values
-* Step 5. Multiple Reduce Nodes for Same Key
+* Step 4. Quick way to determine upper and lower bound for key
+* Step 5. Increase the number of reduce nodes to speed up reduce processes
 
 
 1. Up to Step 4 (compute_local_optimized_step_4.py):  Follows Map-Reduce Pattern
