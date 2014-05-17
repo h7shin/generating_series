@@ -11,6 +11,8 @@ Generating Series is defined by the generating function P(S,x)
 
 * v stores the upper and lower bound for keys see compute_local.py for detailed documentation
 
+![Equation](https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation_example.png)
+
 ##### Support
 Python 3
 
