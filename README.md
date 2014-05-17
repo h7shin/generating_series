@@ -14,7 +14,7 @@ Generating Series is defined by the generating function P(S,x)
 ##### Support
 Python 3
 
-##### Two Algorithms
+##### Optimizations
 
 The optimization is implemented in five steps:
 
@@ -25,10 +25,11 @@ Optimizations
 * Step 4. Quick way to determine upper and lower bound for key
 * Step 5. Increase the number of reduce nodes to speed up reduce processes
 
-
-1. Up to Step 4 (compute_local_optimized_step_4.py):  Follows Map-Reduce Pattern
+1. First Step: Split input data into smaller inputs and follow Map Reduce Pattern
+2. ![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/optimized_step_1.png?raw=true)
+2. Up to Step 4 (compute_local_optimized_step_4.py):  Local Combine
 ![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/optimized_step_4.png?raw=true)
-2. Up to Step 5 (compute_local.py): Splits Reduce Nodes further to increase number of parallel reduce processes
+3. Up to Step 5 (compute_local.py): Splits Reduce Nodes further to increase number of parallel reduce processes
 ![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/optimized_step_5.png?raw=true)
 
 ##### Comparison of Algorithms
