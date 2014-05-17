@@ -26,7 +26,7 @@ Optimizations
 * Step 5. Increase the number of reduce nodes to speed up reduce processes
 
 1. First Step: Split input data into smaller inputs and follow Map Reduce Pattern
-2. ![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/optimized_step_1.png?raw=true)
+![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/optimized_step_1.png?raw=true)
 2. Up to Step 4 (compute_local_optimized_step_4.py):  Local Combine
 ![Diagram](https://github.com/hyunwookshin/generating_series/blob/master/diagrams/optimized_step_4.png?raw=true)
 3. Up to Step 5 (compute_local.py): Splits Reduce Nodes further to increase number of parallel reduce processes
