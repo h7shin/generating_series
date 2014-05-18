@@ -17,7 +17,7 @@ def hello():
     for n in range(1,5):
         output += "Enter a number n such that S =  {1...n}:  " + str(n) + "\n"
     output += str(compute(create_list(n),n,'not_fixed')) + "\n"
-    output = "</textarea></body></html>" + "\n"
+    output += "</textarea></body></html>" + "\n"
     return output
 # launch
 if __name__ == "__main__":
