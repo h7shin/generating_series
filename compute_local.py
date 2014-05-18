@@ -88,7 +88,10 @@ def compute(lst, size_param = 0, option='not_fixed'):
         print ("Up to Reducing Stage:", str(time.time() - start_time ) + " seconds"  )
         print("Length of List of List: ", len_lst )
         return sum(result_lst)
-        
+    except Exception, e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)})    
     except NameError as e:
         print('Usage Error:', e)
     
