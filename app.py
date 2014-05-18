@@ -15,7 +15,7 @@ app.config.update(
 @app.route("/")
 def hello():
     form = cgi.FieldStorage()
-    print (form["n"])
+    print (form)
     output = "<html><body><textarea rows='50' cols='50'>"
     output += "In this example, W(I) = |I|, where I is a set of integers and I is a subset of S" + "\n"
     for n in range(1,5):
