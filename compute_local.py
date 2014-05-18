@@ -5,7 +5,7 @@ from reduce import reduce
 from client import get_num_map_nodes, create_list
 
 # HEROKU SUPPORT DISABLE BY COMMENTING OUT
-u[web.1]: State changed from starting to crashed
+
 from flask import Flask
 
 app = Flask(__name__)
