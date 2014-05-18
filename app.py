@@ -27,7 +27,7 @@ def hello():
     for n in range(1,5):
         
         output += "Automatically entered a number <i>n</i> = " + str(n) + " such that <b>S</b> =  <b>{1..<i>" + str(n) + "</i>}</b><br>"
-        output += "S" = "{" + ", ".join(str(i) for i in create_list(n))+ "} <br>"
+        output += "S = {" + ", ".join(str(i) for i in create_list(n))+ "} <br>"
         start_time = time.time() 
         output += "Sum: " + str(compute(create_list(n),n,'not_fixed')) + "<br>"
         output += "Compute Time " + str(time.time() - start_time) + " seconds<br>" 
