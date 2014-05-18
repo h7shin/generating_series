@@ -1,0 +1,5 @@
+tailor==0.9.35
+stgit==0.16
+mercurial==2.9.2
+git-remote-helpers==0.1.0
+logilab-common==0.58.0
