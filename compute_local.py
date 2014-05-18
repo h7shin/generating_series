@@ -9,9 +9,8 @@ from client import get_num_map_nodes, create_list
 from flask import Flask
 
 app = Flask(__name__)
-
 @app.route('/')
-
+app.debug = True
 
 def compute(lst, size_param = 0, option='not_fixed'):
     try:       
@@ -92,7 +91,7 @@ def compute(lst, size_param = 0, option='not_fixed'):
         
     except NameError as e:
         print('Usage Error:', e)
-        
+    return jsonify(result={"status": 200})
 if __name__ == "__main__":
     #with open("output.txt", "a") as myfile:
         
