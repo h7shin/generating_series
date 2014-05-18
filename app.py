@@ -21,7 +21,7 @@ def hello():
     output += "In this example, W(I) = |I|, where I is a set of integers and I is a subset of S" + "<br>"
     for n in range(1,5):
         output +=" ".join(str(i) for i in create_list(n))+ "<br>"
-        output += "Auto Enter a number <i>n</i> such that <b>S</b> =  <b>{1..<i>" + str(n) + "</i>}</b><br>"
+        output += "Automatically entered a number <i>n</i> = " + str(n) + " such that <b>S</b> =  <b>{1..<i>" + str(n) + "</i>}</b><br>"
         start_time = time.time() 
         output += str(compute(create_list(n),n,'not_fixed')) + "<br>"
         output += str(time.time() - start_time) + " seconds<br>" 
