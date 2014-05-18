@@ -13,7 +13,7 @@ app.config.update(
 @app.route("/")
 def hello():
     output = "Testing...."
-    output += "W(I) = |I| where I is a set of integers and I is a subset of S")
+    output += "W(I) = |I| where I is a set of integers and I is a subset of S"
     for n in range(1,5):
         output += "Enter a number n such that S =  {1...n}:  " + str(n) + "\n"
     return output
