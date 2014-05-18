@@ -19,14 +19,14 @@ def hello():
     output = "<html><body><div style='font-family: Arial '>"
     output += "<h2>Generating Series Live Demonstration</h2>"
     output += "<br>"
-    output += "<a href='https://github.com/hyunwookshin'><b>Source Code: github/hyunwookshin</b></a><br>"
-    output += "Last Edited: May 18, 2014<br>"
+    output += "<a href='https://github.com/hyunwookshin'><b>Please feel free to take a look at the source code: github/hyunwookshin</b></a><br>"
+    output += "Last edited: May 18, 2014<br>"
     output +=" ".join(form)+ "<br>"
     output += "In this example, Let weight function W(I) = |I| (size of I), where I is a set of integers and I is a subset of S" + "<br>"
-    output += "<img src='https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation.png'><br>"
-    for n in range(1,5):
+    output += "<img src='https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation.png' width='500px'><br>"
+    for n in 2,4,8:
         
-        output += "Automatically entered a number <i>n</i> = " + str(n) + " such that <b>S</b> =  <b>{1..<i>" + str(n) + "</i>}</b><br>"
+        output += "Automatically entered a number <i>n</i> = " + str(n) + " such that <b>S</b> =  <b>{1,..," + str(n) + "}</b><br>"
         output += "S = {" + ", ".join(str(i) for i in create_list(n))+ "} <br>"
         start_time = time.time() 
         output += "Sum: " + str(compute(create_list(n),n,'not_fixed')) + "<br>"
