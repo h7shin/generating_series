@@ -12,13 +12,13 @@ app.config.update(
 # controllers
 @app.route("/")
 def hello():
-    output = "Testing...."
-    output += "W(I) = |I| where I is a set of integers and I is a subset of S"
+    output = "<html><body><textarea>"
+    output += "In this example, W(I) = |I|, where I is a set of integers and I is a subset of S" + "\n"
     for n in range(1,5):
         output += "Enter a number n such that S =  {1...n}:  " + str(n) + "\n"
+    output += str(compute(create_list(n),n,'not_fixed')) + "\n"
+    output = "</textarea></body></html>" + "\n"
     return output
-        #compute(create_list(1),,'not_fixed')
-
 # launch
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
