@@ -12,10 +12,11 @@ app.config.update(
 # controllers
 @app.route("/")
 def hello():
-    return "Testing...."
-    print("W(I) = |I| where I is a set of integers and I is a subset of S")
+    output = "Testing...."
+    output += "W(I) = |I| where I is a set of integers and I is a subset of S")
     for n in range(1,5):
-        print("Enter a number n such that S =  {1...n}:  ", n)
+        output += "Enter a number n such that S =  {1...n}:  " + str(n) + "\n"
+    return output
         #compute(create_list(1),,'not_fixed')
 
 # launch
