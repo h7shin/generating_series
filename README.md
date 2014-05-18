@@ -2,7 +2,7 @@ generating_series
 =================
 
 Evaluating generating series with large input data using Map-Reduce pattern
-
+Live Demo: ![Link](http://generatingseries.herokuapp.com)
 ##### Generating Series
 
 Generating Series is defined by the generating function P(S,x)

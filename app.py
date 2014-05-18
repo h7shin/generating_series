@@ -19,7 +19,7 @@ def hello():
     output = "<html><body><div style='font-family: Arial '>"
     output += "<h2>Generating Series Live Demonstration</h2>"
     output += "<br>"
-    output += "<b>Plan, Source Code and Documentation:<a href='https://github.com/hyunwookshin/generating_series'> github/hyunwookshin</b></a><br>"
+    output += "<b>Plan, Source Code and Documentation: <a href='https://github.com/hyunwookshin/generating_series'>github/hyunwookshin/generating_series</b></a><br>"
     output += "Last edited: May 18, 2014<br>"
     output +=" ".join(form)+ "<br>"
     output += "In this example, Let weight function W(I) = |I| (size of I), where I is a set of integers and I is a subset of S" + "<br>"
