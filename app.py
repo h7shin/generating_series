@@ -20,11 +20,12 @@ def hello():
     output +=" ".join(form)+ "<br>"
     output += "In this example, W(I) = |I|, where I is a set of integers and I is a subset of S" + "<br>"
     for n in range(1,5):
-        output +=" ".join(str(i) for i in create_list(n))+ "<br>"
+        
         output += "Automatically entered a number <i>n</i> = " + str(n) + " such that <b>S</b> =  <b>{1..<i>" + str(n) + "</i>}</b><br>"
+        output += "S" = "{" + ", ".join(str(i) for i in create_list(n))+ "} <br>"
         start_time = time.time() 
-        output += str(compute(create_list(n),n,'not_fixed')) + "<br>"
-        output += str(time.time() - start_time) + " seconds<br>" 
+        output += "Sum: " + str(compute(create_list(n),n,'not_fixed')) + "<br>"
+        output += "Compute Time " + str(time.time() - start_time) + " seconds<br>" 
         output += "<br>"
     output += "</div></body></html>" + "<br>"
     return output
