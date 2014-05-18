@@ -91,7 +91,7 @@ def compute(lst, size_param = 0, option='not_fixed'):
         
     except NameError as e:
         print('Usage Error:', e)
-    return jsonify(result={"status": 200})
+    
 if __name__ == "__main__":
     #with open("output.txt", "a") as myfile:
         
