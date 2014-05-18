@@ -24,7 +24,7 @@ def runapp():
     output += "<img src='https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation.png' width='500px'><br>"
     for n in 2,4,8:
         output += "<h3><b><i>n</i></b> = " + str(n) + "</h3><br>"
-        output += "Automatically entered a number <i>n</i> = " + str(n) + " such that <b>S</b> =  <b>{1,..," + str(n) + "}</b><br>"
+        output += "Automatically entered a number <i>n</i> = " + str(n) + " such that <b>S</b> is a set of all subsets of  <b>{1,..," + str(n) + "}</b><br>"
         output += "S = {" + ", ".join(str(i) for i in create_list(n))+ "} <br>"
         start_time = time.time() 
         output += "Sum: " + str(compute(create_list(n),n,'not_fixed')) + "<br>"
