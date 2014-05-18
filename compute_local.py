@@ -10,7 +10,7 @@ from flask import Flask
 
 app = Flask(__name__)
 @app.route('/')
-app.debug = True
+
 
 def compute(lst, size_param = 0, option='not_fixed'):
     try:       
