@@ -16,16 +16,17 @@ app.config.update(
 def hello():
     form = cgi.FieldStorage()
     
-    output = "<html><body><textarea rows='50' cols='50'>"
-    output +=" ".join(form)+ "\n"
-    output += "In this example, W(I) = |I|, where I is a set of integers and I is a subset of S" + "\n"
+    output = "<html><body><div style='font-family: Arial '>"
+    output +=" ".join(form)+ "<br>"
+    output += "In this example, W(I) = |I|, where I is a set of integers and I is a subset of S" + "<br>"
     for n in range(1,5):
-        output +=" ".join(str(i) for i in create_list(n))+ "\n"
-        output += "Auto Enter a number n such that S =  {1.." + str(n) + "}\n"
+        output +=" ".join(str(i) for i in create_list(n))+ "<br>"
+        output += "Auto Enter a number <i>n</i> such that <b>S</b> =  <b>{1..<i>" + str(n) + "</i>}</b><br>"
         start_time = time.time() 
-        output += str(compute(create_list(n),n,'not_fixed')) + "\n"
-        output += str(time.time() - start_time) + " seconds\n" 
-    output += "</textarea></body></html>" + "\n"
+        output += str(compute(create_list(n),n,'not_fixed')) + "<br>"
+        output += str(time.time() - start_time) + " seconds<br>" 
+        output += "<br>"
+    output += "</div></body></html>" + "<br>"
     return output
 # launch
 if __name__ == "__main__":
