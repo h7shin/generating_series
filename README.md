@@ -76,11 +76,11 @@ prevent going over the list multiple times to determine maximum and minimum keys
 1. Customize client.py
   * weight function w(<list of elements>) :
   
-  * ... returns a power in the series that will operate on each element of the list
+  * ... returns an int or float, a power of x
   
   * get_num_map_nodes(size_param: integer) optional:
 	
-  * ... returns number of map nodes  where size_param is a variable you can use to categorize input by size
+  * ... returns number of map nodes where size_param is a variable you can use to categorize input by size
     
   * x():
   
