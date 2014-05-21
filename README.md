@@ -7,11 +7,11 @@ Evaluating generating series with large input data using Map-Reduce pattern
 
 ##### Introduction
 
-Parallel programming allows the program to run multiple processes concurrently. This allows a large data set 
+Parallel programming allows the program to run multiple processes asynchronously. This allows a large data set 
 to be split into smaller input for each worker node.
 
 This programming technique can be useful for evaluating the sum generating series (defined in the next section). 
-Below example shows how to compute a generating series with weight function that returns 1 if the input is consonant,
+An example below shows how to compute a generating series with weight function that returns 1 if the input is consonant,
 and 0 if it is a vowel.
 
 ![Equation](https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation_example.png)
@@ -23,7 +23,7 @@ List comprehension in Python is highly optimized for collecting particular set o
 Each map node computes one segment of the input data, a sublist of elements.
 
 A power of each term is determined by a function of one particular element in the list. 
-The terms of the same power will be combined. The power serves as keys when combining like terms.
+The terms of the same power will be combined. The powers of x serves as keys when combining like terms.
 
 Combiner aggregates like terms with the same power. Reduce node then computes the value of the combined term. 
 Finally, the total sum is determined by aggregating the outputs of each reduce node.
