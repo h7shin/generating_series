@@ -10,17 +10,17 @@ Evaluating generating series with large input data using Map-Reduce pattern
 Parallel programming allows the program to run multiple processes concurrently. This allows a large data set 
 to be split into smaller input for each worker node.
 
-This programming technique can be useful in evaluating the sum generating series (defined in the next section). 
-Below is a an example of a generating series with weight function that returns 1 if the input is consonant,
+This programming technique can be useful for evaluating the sum generating series (defined in the next section). 
+Below example shows how to compute a generating series with weight function that returns 1 if the input is consonant,
 and 0 if it is a vowel.
 
 ![Equation](https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation_example.png)
 
 
-Instead of evaluating of every term, we can first collect the like terms, evaluate the sum of coefficients, then evaluate the combined term.
+Instead of evaluating every term, we can first collect the like terms, evaluate the sum of coefficients, then evaluate the combined term.
 List comprehension in Python is highly optimized for collecting particular set of elements from a list. We can, thus, use Python list comprehension to collect the like terms.
 
-Each map node computes one segment of the input data, a list of elements.
+Each map node computes one segment of the input data, a sublist of elements.
 
 A power of each term is determined by a function of one particular element in the list. 
 The terms of the same power will be combined. The power serves as keys when combining like terms.
@@ -74,26 +74,25 @@ prevent going over the list multiple times to determine maximum and minimum keys
 #####  How to run
 
 1. Customize client.py
-  * weight function w(input: list of elements) 
+  * weight function w(<list of elements>) :
   
-  returns a power in the series that will operate on each element of the list
+  * ... returns a power in the series that will operate on each element of the list
   
-  * get_num_map_nodes(size_param) optional
+  * get_num_map_nodes(size_param: integer) optional:
 	
-  returns number of map nodes
-  where size_param is a variable you can use to categorize input by size
+  * ... returns number of map nodes  where size_param is a variable you can use to categorize input by size
     
-  * x() 
+  * x():
   
-  returns a number to be used to substitute for variable x
+  * ... returns a number to be used to substitute for variable x
   
-  * ocreate_list() 
+  * create_list(): 
   
-  returns a list to be used as an input
+  * ... returns a list to be used as an input
   
 2. Run command [your_path_to]/Python34/python.exe compute_local.py
   * Call function compute(lst,size_param,option)
-    where lst is a list of (list, integer, or float)
+  * ... where lst is a list of (list, integer, or float)
   * size_param is a variable that indicates the size of the input (you define it in anyway you like)
   * option is one of 'fixed' or 'not_fixed'
   * 'fixed'         : set number of map nodes to 5 (you can modify this in compute_local.py)
