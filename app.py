@@ -18,9 +18,9 @@ def runapp():
     output += "<h2>Generating Series Live Demonstration</h2>"
     output += "<br>"
     output += "<b>Plan, Source Code and Documentation: <a href='https://github.com/hyunwookshin/generating_series'>github/hyunwookshin/generating_series</b></a><br>"
-    output += "Last edited: May 18, 2014<br>"
+    output += "Last edited: May 21, 2014<br>"
     output += "<br>"
-    output += "In this example, Let weight function W(I) = |I| (size of I), where I is a set of integers and I is a subset of S" + "<br>"
+    output += "In this example, Let weight function W(I) = |I| (size of I), where I is a set of some integers and I is a subset of S" + "<br>"
     output += "<img src='https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation.png' width='500px'><br>"
     for n in 2,4,8:
         output += "<h3><b><i>n</i></b> = " + str(n) + "</h3><br>"
