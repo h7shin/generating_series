@@ -21,12 +21,11 @@ Instead of evaluating every term, we can first collect the like terms, evaluate 
 List comprehension in Python is highly optimized for collecting particular set of elements from a list. We can, thus, use Python list comprehension to collect the like terms.
 
 Each map node computes one segment of the input data, a sublist of elements. Map node produces (or emits) key-value
-pairs each corresponding to each term in the generating series. 
+pairs for every element in the list, each corresponding to a particular term in the generating series. 
 
-A power of each term is determined by a function of one particular element in the list (see definition below). 
-The powers of x serve as keys when combining like terms.
+A power of each term is determined by a function of one element in the list, and the powers of x serve as keys when combining like terms.
 
-Combiner aggregates like terms with the same power. Reduce node then computes the value of the combined term. 
+Combiner aggregates like terms with the same power (same keys). Reduce node then computes the value of the combined term. 
 Finally, the total sum is determined by aggregating the outputs of each reduce node.
 
 ##### Generating Series
