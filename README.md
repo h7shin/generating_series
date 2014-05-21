@@ -11,14 +11,14 @@ Parallel programming allows the program to run multiple processes asynchronously
 to be split into smaller inputs distributed to each worker node.
 
 This programming technique can be useful for evaluating the sum of generating series (defined in the next section). 
-An example below shows how to compute a generating series with weight function that returns 1 if the input is consonant,
+An example below shows how to compute a generating series with a weight function that returns 1 if the input is consonant,
 and 0 if it is a vowel.
 
 ![Equation](https://raw.githubusercontent.com/hyunwookshin/generating_series/master/equation/equation_example.png)
 
 
 Instead of evaluating every term, we can first collect the like terms, evaluate the sum of coefficients, then evaluate the combined term.
-List comprehension in Python is highly optimized for collecting particular set of elements from a list. We can, thus, use Python list comprehension to collect the like terms.
+List comprehension in Python is highly optimized for collecting particular sublist of elements from a list. We can, thus, use Python list comprehension to collect the like terms.
 
 Each map node computes one segment of the input data, a sublist of elements. Map node produces (or emits) key-value
 pairs for every element in the list, each corresponding to a particular term in the generating series. 
