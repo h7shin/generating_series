@@ -4,12 +4,20 @@ from map import map
 from reduce import reduce
 from client import get_num_map_nodes, create_list
 """ 
+
+About the Module
+  
+compute(lst) computes the sum of the generating series
+for a set of elements (lst) implemented as a Python list with respect
+to weight function w().
+
 Notice
 
 this module should not be altered unless one wishes to:
 
 * test the algorithm at some fixed number of map nodes
   uncomment line that contains compute(lst,n,'test')
+  
 * test run time at different input sizes
   uncomment the for-loop block under __name__ == '__main__'
 
@@ -18,42 +26,43 @@ All neccessary parameters is customizable in client.py
 client must provide in client.py the following:
 
 * a method that generates a list using create_lst(), empty list is okay
+
 * a method that specifies the number of map nodes 
   defined as get_num_map_nodes(size_param)
   and size_param is an input size parameter the client can use
-  to adjust number of map nodes
+  to adjust number of map nodes. The user may interpret 
+  size_param in any way he or she likes.
+  
 * a weight method, w(input), that takes the element
   of the given list and returns an integer or float
-  see (map.py) to see how the weight method is used
+  see (map.py to see how the weight method is used)
+  
 * a substitute method, x(), which returns an integer
   or float to replace the variable x in the series
-
-About the Module
-  
-compute(lst) computes the sum of the generating series
-for a set of elements (lst) implemented as a Python list with respect
-to weight function w() (to be defined in client.py).
 
 optional paramers:
     size_param      used to determine appropriate number of map nodes
     option          'not_fixed' or 'fixed' 
                     where
                         'fixed' tells compute() to
-                        keep number of map nodes at some default values
-                        to be defined in the client module
+                        keep number of map nodes fixed at some default values
+                        regardless of the input size (5)
                         
-                        'not_fixed' will 
+                        'not_fixed' will use get_num_map_nodes(size_param)
+                        to determine the number of map nodes as a function 
+                        of size_param
 
 lst may be a list of any type (integer, list, etc), as long as
-it is consistent in the implementation of w()
+the types are consistent with implementation of w()
 
 User may also provide a parameter for n which can be
 used to set number of map nodes
 
 """
+
 def compute(lst, size_param = 0, option='not_fixed'):
     try:       
-        # number of map nodes num_map_nodes
+        # number of map nodes is num_map_nodes
         if option=='not_fixed':
             num_map_nodes = get_num_map_nodes(size_param)
         elif option == 'fixed':
@@ -62,6 +71,9 @@ def compute(lst, size_param = 0, option='not_fixed'):
             raise NameError('second parameter [option] should be either `not_fixed` or `fixed` ... see documentation')
         
         # Manager to keep track of all map results
+        manager = Manager()
+        
+        # Store key value emitted from map nodes here
         list_of_emissions = []
         
         # Job is a list of processes
@@ -70,12 +82,10 @@ def compute(lst, size_param = 0, option='not_fixed'):
         # Process number
         num_p = 0    
         
-        manager = Manager()
-        
+        # Timer
         start_time = time.time() 
         
-        print ("Up to Permutation:", str(time.time() - start_time ) + " seconds"  )
-        
+        # Get list size
         len_lst = len(lst)
         
         print ("Size of S: ", len_lst)
@@ -84,8 +94,8 @@ def compute(lst, size_param = 0, option='not_fixed'):
         i=0
         
         #Split input into muliple sliced_list each sent to one map node
-        
         while i < len_lst:
+            #list_of_emissions[i] hold key value pairs emitted from one map node i
             list_of_emissions.append(manager.list())
             if (len_lst - i <= len_sublist):
                 # last step
@@ -106,13 +116,14 @@ def compute(lst, size_param = 0, option='not_fixed'):
         
         print ("Up to Mapping Stage:", str(time.time() - start_time ) + " seconds"  )
 
-        #---------------------------------------------------
         # Shuffle/Reduce
         
         jobs = []   
         manager_2 = Manager()    
         result_lst = manager_2.list()    
 
+        # This is the step five optimization (duplicating
+        # number of reduce nodes for each key)
         for emissions in list_of_emissions:
             for key in range(emissions[-1][1],emissions[-1][2]+5):
                 key_list = [1 for x in emissions if x[0] == key]

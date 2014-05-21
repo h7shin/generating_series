@@ -2,8 +2,14 @@ from client import weight
 
 """ map function takes (slice_number, sublist_of_element, emissions)
 as inputs and appends (weight(element), min, max) (weight(element) is the key)
-to emissions, where min, max are the lowest and highest weight(element) keys
-in emissions
+to emissions"""
+
+
+"""
+min and max are minimum and maximum keys emitted from
+completed map processes. This is to keep track of the upper and 
+lower bound of key range, and avoid going through the
+list again to determine the maximum and minimum key values.
 """
 
 def map (slice_number, sublist_of_element, emissions):
