@@ -8,7 +8,7 @@ Evaluating generating series with large input data using Map-Reduce pattern
 ##### Introduction
 
 Parallel programming allows the program to run multiple processes asynchronously. This allows a large data set 
-to be split into smaller input for each worker node.
+to be split into smaller inputs distributed to each worker node.
 
 This programming technique can be useful for evaluating the sum generating series (defined in the next section). 
 An example below shows how to compute a generating series with weight function that returns 1 if the input is consonant,
